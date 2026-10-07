@@ -371,8 +371,15 @@ body > *{ position:relative; z-index:1; }
    Reconhecimento e conquistas (certificados, diplomas, encontros)
    ========================================================================== */
 /* flex (e não grid) pra que um card sobrando na última linha fique centralizado */
-.conquistas-grid{ display:flex; flex-wrap:wrap; justify-content:center; gap:26px; position:relative; z-index:1; }
-.conquistas-grid > .conquista{ flex:0 0 calc((100% - 3*26px)/4); }
+.conquistas-grid{ display:flex; flex-wrap:wrap; justify-content:center; gap:18px; position:relative; z-index:1; }
+/* 5 cards lado a lado no computador; 3 por linha em telas médias */
+.conquistas-grid > .conquista{ flex:0 0 calc((100% - 4*18px)/5); }
+.conquistas-grid .conquista figcaption{ padding:14px 14px 16px; }
+.conquistas-grid .conquista figcaption b{ font-size:.95rem; }
+.conquistas-grid .conquista figcaption span{ font-size:.86rem; }
+@media (min-width: 901px) and (max-width: 1100px){
+  .conquistas-grid > .conquista{ flex-basis:calc((100% - 2*18px)/3); }
+}
 .conquista{ margin:0; background:#fff; border:3px solid var(--tinta); border-radius:var(--raio); box-shadow:6px 7px 0 rgba(43,42,40,.9); overflow:hidden; transition:transform .25s ease, box-shadow .25s ease; }
 .conquista:nth-child(2n){ transform:rotate(-1deg); }
 .conquista:nth-child(3n){ transform:rotate(1deg); }
@@ -602,7 +609,7 @@ body > *{ position:relative; z-index:1; }
   .puzzle-band{ height:66px; background-size:330px 66px; }
   @keyframes puzzle-scroll{ to{ background-position:-330px 50%; } }
   .grid--3, .grid--4, .doc-grid, .equipe-list, .conquistas-grid{ grid-template-columns:1fr 1fr; }
-  .conquistas-grid > .conquista{ flex-basis:calc((100% - 26px)/2); }
+  .conquistas-grid > .conquista{ flex-basis:calc((100% - 18px)/2); }
   .trans-teaser, .contato-grid, .midia-grid, .doacao{ grid-template-columns:1fr; }
   .footer-grid{ grid-template-columns:1fr; gap:28px; }
   .marquee__item{ width:214px; }
