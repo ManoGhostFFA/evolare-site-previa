@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Instituto EVOLARE | Cuidado e inclusão para pessoas neurodivergentes</title>
+  <meta name="description" content="O Instituto EVOLARE é uma organização sem fins lucrativos de Anápolis – Goiás, que acolhe pessoas neurodivergentes (autismo, síndrome de Down, TDAH) com atendimento interdisciplinar e apoio às famílias.">
+  <link rel="canonical" href="https://institutoevolare.com.br/">
+  <meta property="og:title" content="Instituto EVOLARE">
+  <meta property="og:description" content="Cuidado, inclusão e desenvolvimento para pessoas neurodivergentes em Anápolis – Goiás.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://institutoevolare.com.br/">
+  <!-- Imagem que aparece ao compartilhar o link (WhatsApp, Instagram, Facebook). -->
+  <meta property="og:image" content="https://institutoevolare.com.br/assets/img/campanha-evolare.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=12">
+</head>
+<body>
+
+  <!-- ====================================================================
+       Sprite de doodles (desenhados à mão). Reutilizados via <use>.
+       ==================================================================== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="dood-star" viewBox="0 0 100 100"><path fill="currentColor" d="M50 6c3 26 18 41 44 44-26 3-41 18-44 44-3-26-18-41-44-44 26-3 41-18 44-44z"/></symbol>
+      <symbol id="dood-squiggle" viewBox="0 0 120 40"><path fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" d="M6 22C20 2 32 4 44 22S70 38 80 20 100 4 114 20"/></symbol>
+      <symbol id="dood-arrow" viewBox="0 0 120 96"><path fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M8 14C64 4 108 30 100 80"/><path fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M78 62l22 20 14-26"/></symbol>
+      <symbol id="dood-loop" viewBox="0 0 140 60"><path fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" d="M6 40C20 10 40 10 44 34c2 16-14 18-12 2C34 18 60 14 78 34c14 16 32 12 54-12"/></symbol>
+      <symbol id="dood-spiral" viewBox="0 0 100 100"><path fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" d="M50 52a5 5 0 1 1-5 5 16 16 0 1 1 22-4 28 28 0 1 1-40 4 40 40 0 1 1 58-6"/></symbol>
+      <symbol id="dood-heart" viewBox="0 0 100 100"><path fill="currentColor" d="M50 86C20 64 8 46 8 30 8 16 18 8 30 8c8 0 15 4 20 12 5-8 12-12 20-12 12 0 22 8 22 22 0 16-12 34-42 56z"/></symbol>
+      <symbol id="dood-ring" viewBox="0 0 120 100"><path fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" d="M64 10C24 8 8 34 14 58s46 38 76 28 22-74 6-84C78 8 40 6 30 26"/></symbol>
+      <symbol id="dood-zig" viewBox="0 0 60 100"><path fill="currentColor" d="M34 4 12 54h16l-10 42 34-58H34z"/></symbol>
+      <symbol id="dood-plus" viewBox="0 0 40 40"><path fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" d="M20 6v28M6 20h28"/></symbol>
+      <symbol id="dood-dots" viewBox="0 0 64 20"><circle cx="8" cy="10" r="5" fill="currentColor"/><circle cx="32" cy="10" r="5" fill="currentColor"/><circle cx="56" cy="10" r="5" fill="currentColor"/></symbol>
+      <!-- Traços grossos de pincel, usados na seção das frentes de atuação -->
+      <symbol id="brush-wave" viewBox="0 0 60 200"><path fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" d="M32 8C6 30 54 48 30 70S8 110 32 132s20 42-4 60"/></symbol>
+      <symbol id="brush-zig" viewBox="0 0 100 60"><path fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" d="M6 46 30 12l22 34L74 14l20 32"/></symbol>
+      <symbol id="brush-arcs" viewBox="0 0 90 90"><path fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" d="M12 80C12 44 40 16 78 12M28 84c2-28 24-50 52-52M46 86c0-16 14-30 34-32"/></symbol>
+      <symbol id="brush-bars" viewBox="0 0 70 90"><path fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" d="M12 82 26 8M36 84 50 10M58 78 68 24"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="progress" id="progress"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="gradient-bar"></div>
+    <nav class="nav">
+      <a href="index.html" class="nav__logo"><img src="assets/img/logo-evolare.png" alt="Instituto EVOLARE"></a>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#sobre">Quem somos</a></li>
+        <li><a href="#atuacao">O que fazemos</a></li>
+        <li><a href="#equipe">Equipe</a></li>
+        <li><a href="transparencia.html">Transparência</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="#apoiar" class="btn btn--primary" style="padding:10px 22px;"><svg class="btn__ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.1 4.3 2.4.7-1.3 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg>Apoie</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <span class="blob blob--azul" style="width:360px;height:360px;top:-80px;left:-60px;"></span>
+    <span class="blob blob--coral" style="width:300px;height:300px;bottom:-100px;right:-40px;"></span>
+
+    <!-- doodles flutuantes -->
+    <svg class="doodle d-amarelo twinkle" style="width:40px;height:40px;top:80px;left:6%;" aria-hidden="true"><use href="#dood-star"/></svg>
+    <svg class="doodle d-azul float-b" style="width:120px;height:40px;top:52px;left:38%;--r:-6deg;" aria-hidden="true"><use href="#dood-squiggle"/></svg>
+    <svg class="doodle d-coral twinkle" style="width:26px;height:26px;top:150px;right:44%;" aria-hidden="true"><use href="#dood-star"/></svg>
+    <svg class="doodle d-laranja float-a" style="width:52px;height:52px;top:28px;right:8%;--r:0deg;" aria-hidden="true"><use href="#dood-zig"/></svg>
+    <svg class="doodle d-azul" style="width:30px;height:30px;bottom:120px;right:6%;" aria-hidden="true"><use href="#dood-plus"/></svg>
+
+    <div class="container">
+      <div class="hero__grid">
+        <div>
+          <h1 class="reveal">Cada pessoa evolui no <span class="grad">seu tempo</span>. A gente caminha junto.
+          </h1>
+          <p class="lead reveal d2">O Instituto EVOLARE acolhe crianças e adolescentes neurodivergentes com uma equipe multidisciplinar, com apoio às famílias.</p>
+          <div class="hero__cta reveal d3">
+            <a href="#apoiar" class="btn btn--primary"><svg class="btn__ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.1 4.3 2.4.7-1.3 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg>Quero apoiar</a>
+            <a href="#atuacao" class="btn btn--ghost">Conheça o trabalho<svg class="btn__ic btn__ic--seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+        <div class="hero__art reveal d2">
+          <!-- Mascote com fundo recortado: o WebM tem canal alpha de verdade (VP9 + alpha),
+               gerado por scripts/recortar-fundo-video.py. Por isso ele fica rente ao fundo
+               do site, sem caixa, sem borda. Se o vídeo não carregar, entra o poster PNG,
+               que também é transparente. -->
+          <video id="mascoteVideo" class="hero__mascote" autoplay muted loop playsinline
+                 preload="auto" poster="assets/img/mascote-poster.png"
+                 disablepictureinpicture disableremoteplayback
+                 tabindex="-1" aria-label="Mascote do Instituto EVOLARE acenando">
+            <source src="assets/video/mascote-acenando.webm" type="video/webm">
+            <img src="assets/img/mascote-poster.png" alt="Mascote do Instituto EVOLARE">
+          </video>
+          <span class="hero__tag">100% <b>sem fins lucrativos</b></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fita de valores -->
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon__track">
+      <span class="r-azul">Cuidado</span><span class="r-verde">Inclusão</span><span class="r-amarelo">Desenvolvimento</span><span class="r-laranja">Acolhimento</span><span class="r-coral">Respeito</span><span class="r-azul">Transparência</span><span class="r-verde">Cada um no seu tempo</span>
+      <span class="r-azul">Cuidado</span><span class="r-verde">Inclusão</span><span class="r-amarelo">Desenvolvimento</span><span class="r-laranja">Acolhimento</span><span class="r-coral">Respeito</span><span class="r-azul">Transparência</span><span class="r-verde">Cada um no seu tempo</span>
+    </div>
+  </div>
+
+  <!-- Sobre -->
+  <section class="section bg-creme" id="sobre">
+    <span class="blob blob--azul" style="width:280px;height:280px;top:40px;right:-90px;opacity:.35;"></span>
+    <svg class="doodle d-amarelo spin-slow" style="width:46px;height:46px;top:60px;left:4%;" aria-hidden="true"><use href="#dood-star"/></svg>
+    <div class="container">
+      <div class="sobre">
+        <div class="sobre__media reveal">
+          <svg class="doodle d-coral twinkle" style="width:34px;height:34px;top:-18px;left:-16px;z-index:2;" aria-hidden="true"><use href="#dood-star"/></svg>
+          <img src="assets/img/galeria/atendimento-alfabeto.jpg" alt="Terapeuta em atendimento com criança usando fichas do alfabeto no Instituto EVOLARE" style="aspect-ratio:auto; height:auto;">
+        </div>
+        <div class="reveal d1">
+          <h2>Um instituto que nasceu do <span class="c-coral">cuidado</span>
+          </h2>
+          <p>Fundado em 2017 em Anápolis, o Instituto EVOLARE é uma associação sem fins lucrativos que existe para acolher crianças e adolescentes neurodivergentes pertencentes a famílias de Baixo Desenvolvimento Econômico. Acreditamos que cada pessoa tem um jeito próprio de aprender, se comunicar e se desenvolver, e que o papel do instituto é oferecer o suporte certo para que esse desenvolvimento aconteça com dignidade.</p>
+          <p>O trabalho reúne profissionais de várias áreas da saúde e da educação em um só lugar. O critério para seleção da triagem consiste em encaminhamento, laudo e baixa renda.</p>
+          <p>Para tudo isso, contamos com doações, parcerias e o compromisso de quem acredita que a inclusão se constrói na prática, todos os dias.</p>
+          <div class="stats">
+            <div class="stat"><b class="count" data-count="2017">2017</b><span>Ano de fundação</span></div>
+            <div class="stat"><b class="count" data-count="9" data-suffix="+">9+</b><span>Áreas de atendimento</span></div>
+            <div class="stat"><b class="count" data-count="100" data-suffix="%">100%</b><span>Sem fins lucrativos</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Para quem -->
+  <section class="section bg-verde">
+    <span class="blob blob--verde" style="width:320px;height:320px;top:-60px;left:-80px;"></span>
+    <svg class="doodle d-verde float-b" style="width:120px;height:40px;top:40px;right:6%;--r:4deg;" aria-hidden="true"><use href="#dood-squiggle"/></svg>
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Público de Atendidos <span class="c-verde">EVOLARE</span></h2>
+        <p>Atendemos crianças e adolescentes neurodivergentes, com idade dos 03 aos 24 anos, respeitando cada condição e cada história.</p>
+      </div>
+      <div class="pill-list reveal d1">
+        <span class="pill">Autismo (TEA)</span>
+        <span class="pill">Síndrome de Down</span>
+        <span class="pill">TDAH</span>
+        <span class="pill">Atrasos no desenvolvimento</span>
+        <span class="pill">Apoio às famílias</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faixa de quebra-cabeça (símbolo da conscientização do autismo) -->
+  <div class="puzzle-band" role="presentation"></div>
+
+  <!-- Campanha: a criança pode ser criança -->
+  <section class="section bg-laranja" id="campanha">
+    <span class="blob blob--amarelo" style="width:300px;height:300px;top:-70px;right:-80px;opacity:.35;"></span>
+    <svg class="doodle d-coral twinkle" style="width:30px;height:30px;top:56px;left:5%;" aria-hidden="true"><use href="#dood-star"/></svg>
+    <svg class="doodle d-azul float-b" style="width:110px;height:38px;bottom:50px;right:6%;--r:-4deg;" aria-hidden="true"><use href="#dood-squiggle"/></svg>
+    <div class="container">
+      <div class="campanha">
+        <div class="campanha__art reveal">
+          <img src="assets/img/campanha-evolare.jpg" width="900" height="1125"
+               alt="Criança sorrindo com as mãos pintadas de amarelo e azul, ao lado da frase: é aqui na EVOLARE que seu filho pode ser feliz">
+          <span class="campanha__tag">Cada peça no <b>seu tempo</b></span>
+        </div>
+        <div class="reveal d1">
+          <h2>É aqui na EVOLARE que seu filho pode <span class="c-azul">ser feliz!</span>
+          </h2>
+          <p style="font-family:'Poppins',sans-serif; font-weight:700; font-size:1.3rem; margin-top:-4px;">Cada criança no seu tempo.</p>
+          <p>Antes de qualquer terapia, o EVOLARE é um lugar seguro pra brincar, se sujar de tinta, errar e tentar de novo. O desenvolvimento vem junto com o afeto, no ritmo de cada um, sem pressa e sem comparação.</p>
+          <ul class="campanha__lista">
+            <li><b>Ambiente preparado:</b> para crianças e adolescentes neurodivergentes, com equipe ACOLHEDORA;</li>
+            <li><b>Família acompanhada:</b> do primeiro contato ao dia a dia do tratamento do ATENDIDO;</li>
+            <li><b>Triagem por renda:</b> atenção especial a quem mais precisa de apoio SOCIAL, dando-lhe dignidade.</li>
+          </ul>
+          <a href="https://wa.me/5562994092612?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20do%20Instituto%20EVOLARE" target="_blank" rel="noopener" class="btn btn--primary"><svg class="btn__ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg>Conversar com o instituto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frentes de atuação (personagens ilustrados) -->
+  <section class="section frentes-sec" id="frentes">
+    <svg class="doodle d-tinta" style="width:44px;height:150px;top:70px;left:3%;opacity:.85;" aria-hidden="true"><use href="#brush-wave"/></svg>
+    <svg class="doodle d-tinta float-b" style="width:76px;height:46px;top:52px;left:26%;opacity:.85;--r:-8deg;" aria-hidden="true"><use href="#brush-zig"/></svg>
+    <svg class="doodle d-tinta" style="width:60px;height:60px;top:88px;right:6%;opacity:.85;" aria-hidden="true"><use href="#brush-arcs"/></svg>
+    <svg class="doodle d-tinta float-c" style="width:46px;height:60px;bottom:34px;left:2%;opacity:.85;" aria-hidden="true"><use href="#brush-bars"/></svg>
+    <svg class="doodle d-tinta" style="width:40px;height:130px;bottom:40px;right:3%;opacity:.85;transform:scaleX(-1);" aria-hidden="true"><use href="#brush-wave"/></svg>
+
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Nossas frentes de <span class="c-coral">atuação</span></h2>
+        <p>Quatro caminhos que andam juntos. Todos previstos no Estatuto, sendo praticados diariamente pelo Instituto EVOLARE.</p>
+      </div>
+
+      <div class="frentes">
+        <article class="frente reveal">
+          <div class="frente__art">
+            <span class="frente__blob" style="background:rgba(76,148,198,.30);"></span>
+            <img src="assets/img/personagens/frente-saude.png" alt="Criança usando fones de ouvido em sessão de musicoterapia">
+          </div>
+          <p class="frente__label"><span>Atenção à</span><b class="c-azul">saúde e terapias</b></p>
+        </article>
+
+        <article class="frente reveal d1">
+          <div class="frente__art">
+            <span class="frente__blob" style="background:rgba(135,188,138,.34);"></span>
+            <img src="assets/img/personagens/frente-educacao.png" alt="Criança segurando um lápis e um livro aberto">
+          </div>
+          <p class="frente__label"><span>Educação e</span><b class="c-verde">inclusão</b></p>
+        </article>
+
+        <article class="frente reveal d2">
+          <div class="frente__art">
+            <span class="frente__blob" style="background:rgba(236,154,94,.32);"></span>
+            <img src="assets/img/personagens/frente-familias.png" alt="Mãe segurando o filho pequeno no colo">
+          </div>
+          <p class="frente__label"><span>Apoio às</span><b class="c-laranja">famílias</b></p>
+        </article>
+
+        <article class="frente reveal d3">
+          <div class="frente__art">
+            <span class="frente__blob" style="background:rgba(219,93,107,.28);"></span>
+            <img src="assets/img/personagens/frente-humanitaria.png" alt="Criança segurando uma caixa de doações">
+          </div>
+          <p class="frente__label"><span>Valorização Hipossuficiente</span><b class="c-coral">Ação humanitária</b></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- O que fazemos -->
+  <section class="section bg-azul" id="atuacao">
+    <span class="blob blob--laranja" style="width:300px;height:300px;bottom:-80px;right:-70px;opacity:.3;"></span>
+    <svg class="doodle d-laranja spin-slow" style="width:54px;height:54px;bottom:40px;left:5%;" aria-hidden="true"><use href="#dood-spiral"/></svg>
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Atendimento multidisciplinar em <span class="c-laranja">um só lugar</span></h2>
+        <p>No Instituto EVOLARE, as especialidades trabalham em conjunto para cuidar de cada ATENDIDO por inteiro, com escuta, acolhimento e atenção individualizada de forma detida.</p>
+      </div>
+      <div class="grid grid--3">
+        <article class="card card--c1 reveal">
+          <svg class="card__star" aria-hidden="true"><use href="#dood-star"/></svg>
+          <div class="card__ico">🧩</div>
+          <h3>Avaliação e diagnóstico</h3>
+          <p>Entender cada pessoa e construir um plano de acompanhamento sob medida (PEI).</p>
+        </article>
+        <article class="card card--c2 reveal d1">
+          <svg class="card__star" aria-hidden="true"><use href="#dood-star"/></svg>
+          <div class="card__ico">🗣️</div>
+          <h3>Terapias especializadas</h3>
+          <p>Psicologia, psicanálise, fonoaudiologia, terapia ocupacional, musicoterapia, com ênfase na terapia ABA e outras abordagens conforme a necessidade.</p>
+        </article>
+        <article class="card card--c3 reveal d2">
+          <svg class="card__star" aria-hidden="true"><use href="#dood-star"/></svg>
+          <div class="card__ico">🍎</div>
+          <h3>Saúde e nutrição</h3>
+          <p>Acompanhamento nutricional e de saúde para dar suporte ao desenvolvimento e ao bem-estar.</p>
+        </article>
+        <article class="card card--c4 reveal">
+          <svg class="card__star" aria-hidden="true"><use href="#dood-star"/></svg>
+          <div class="card__ico">🎨</div>
+          <h3>Educação e inclusão</h3>
+          <p>Pedagogia, psicopedagogia, neuropsicopedagogia, estímulo à aprendizagem e ações que ampliam a inclusão social.</p>
+        </article>
+        <article class="card card--c5 reveal d1">
+          <svg class="card__star" aria-hidden="true"><use href="#dood-star"/></svg>
+          <div class="card__ico">🤝</div>
+          <h3>Apoio às famílias</h3>
+          <p>Orientação, escuta e acolhimento para pais, mães e responsáveis, através da psicanálise, porque cuidar de quem cuida também importa.</p>
+        </article>
+        <article class="card card--c6 reveal d2">
+          <svg class="card__star" aria-hidden="true"><use href="#dood-star"/></svg>
+          <div class="card__ico">🌱</div>
+          <h3>Assistência Social</h3>
+          <p>Atenção às famílias de baixa renda através de TRIAGEM e ações humanitárias na comunidade.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeria (marquee em loop) -->
+  <section class="section bg-amarelo" id="momentos">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Momentos do <span class="c-azul">EVOLARE</span></h2>
+        <p>Registros reais diários, das atividades e encontros que fazem parte da nossa história.</p>
+      </div>
+    </div>
+    <!-- Faixa 1 vai pra esquerda, faixa 2 vai pra direita -->
+    <div class="marquee marquee--inteira">
+      <div class="marquee__track">
+        <div class="marquee__item"><img src="assets/img/galeria/atendimento-sala.jpg" alt="Terapeuta em atendimento individual com uma criança na sala do instituto" width="635" height="705"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/atendimento-crianca.jpg" alt="Atendimento de uma criança no instituto" width="960" height="576"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/crianca-alfabeto.jpg" alt="Criança em atividade com o alfabeto" width="720" height="1280"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/leitura.jpg" alt="Cantinho da leitura" width="900" height="1000"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/crianca-atividade.jpg" alt="Criança em atividade pedagógica" width="1200" height="1595"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/apresentacao.jpg" alt="Apresentação das crianças" width="900" height="1000"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/atividade-massinha.jpg" alt="Atividade com massinha de modelar" width="720" height="1280"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/evento-crianca.jpg" alt="Evento do instituto" width="900" height="1000"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/bebe-brincando.jpg" alt="Criança em atividade lúdica" width="900" height="1000"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/mae-filho.jpg" alt="Mãe e filho em evento" width="900" height="1000"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/acao-comunidade.jpg" alt="Ação social na comunidade" width="960" height="720"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/bazar-solidario.jpg" alt="Bazar solidário do EVOLARE" width="720" height="960"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/acao-social.jpg" alt="Ação social do instituto" width="900" height="1000"></div>
+        <!-- Duplicado para o loop contínuo -->
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/atendimento-sala.jpg" alt="" width="635" height="705"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/atendimento-crianca.jpg" alt="" width="960" height="576"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/crianca-alfabeto.jpg" alt="" width="720" height="1280"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/leitura.jpg" alt="" width="900" height="1000"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/crianca-atividade.jpg" alt="" width="1200" height="1595"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/apresentacao.jpg" alt="" width="900" height="1000"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/atividade-massinha.jpg" alt="" width="720" height="1280"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/evento-crianca.jpg" alt="" width="900" height="1000"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/bebe-brincando.jpg" alt="" width="900" height="1000"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/mae-filho.jpg" alt="" width="900" height="1000"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/acao-comunidade.jpg" alt="" width="960" height="720"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/bazar-solidario.jpg" alt="" width="720" height="960"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/acao-social.jpg" alt="" width="900" height="1000"></div>
+      </div>
+    </div>
+    <div class="marquee marquee--inteira marquee--rev">
+      <div class="marquee__track">
+        <div class="marquee__item"><img src="assets/img/galeria/doacao-entrega.jpg" alt="Entrega de doações arrecadadas pelo instituto" width="450" height="600"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/roda-conversa.jpg" alt="Roda de conversa com mulheres da comunidade" width="800" height="600"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/atividade-cores.jpg" alt="Criança em atividade de cores e encaixe" width="797" height="600"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/bingo-sorteio.jpg" alt="Sorteio no bingo beneficente do EVOLARE" width="1067" height="600"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/bazar-campo-limpo.jpg" alt="Bazar solidário em Campo Limpo de Goiás" width="450" height="600"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/recepcao-espera.jpg" alt="Famílias aguardando atendimento na recepção do instituto" width="771" height="600"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/palestra.jpg" alt="Palestra para as famílias" width="450" height="600"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/torre-hanoi.jpg" alt="Criança em atividade com a torre de Hanói" width="797" height="600"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/bingo-publico.jpg" alt="Público no bingo beneficente do EVOLARE" width="1067" height="600"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/encontro-mulheres.jpg" alt="Encontro com mulheres e profissionais de saúde" width="277" height="600"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/aula-musica.jpg" alt="Aula de música com as crianças" width="338" height="600"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/bazar-frei-eustaquio.jpg" alt="Bazar solidário no Frei Eustáquio" width="450" height="600"></div>
+        <div class="marquee__item"><img src="assets/img/galeria/futura-sede-faixa.jpg" alt="Faixa da futura sede do Instituto EVOLARE, obra em andamento" width="799" height="600"></div>
+        <!-- Duplicado para o loop contínuo -->
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/doacao-entrega.jpg" alt="" width="450" height="600"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/roda-conversa.jpg" alt="" width="800" height="600"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/atividade-cores.jpg" alt="" width="797" height="600"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/bingo-sorteio.jpg" alt="" width="1067" height="600"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/bazar-campo-limpo.jpg" alt="" width="450" height="600"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/recepcao-espera.jpg" alt="" width="771" height="600"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/palestra.jpg" alt="" width="450" height="600"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/torre-hanoi.jpg" alt="" width="797" height="600"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/bingo-publico.jpg" alt="" width="1067" height="600"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/encontro-mulheres.jpg" alt="" width="277" height="600"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/aula-musica.jpg" alt="" width="338" height="600"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/bazar-frei-eustaquio.jpg" alt="" width="450" height="600"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="assets/img/galeria/futura-sede-faixa.jpg" alt="" width="799" height="600"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Passeata pela Paz 2026 -->
+  <section class="section bg-verde" id="passeata">
+    <span class="blob blob--verde" style="width:300px;height:300px;top:-70px;left:-80px;opacity:.32;"></span>
+    <svg class="doodle d-amarelo twinkle" style="width:32px;height:32px;top:56px;right:6%;" aria-hidden="true"><use href="#dood-star"/></svg>
+    <div class="container">
+      <div class="sobre">
+        <div class="foto-dupla reveal">
+          <figure>
+            <img src="assets/img/conquistas/passeata-1.jpg" alt="Juiz Dr. Carlos José Limongi com a equipe do Instituto EVOLARE e a bandeira na Passeata pela Paz 2026">
+            <figcaption>Juiz Dr. Carlos José Limongi</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/img/conquistas/passeata-2.jpg" alt="1ª Dama Carla Lima Correa com a equipe do Instituto EVOLARE na Passeata pela Paz 2026">
+            <figcaption>1ª Dama Carla Lima Correa</figcaption>
+          </figure>
+        </div>
+        <div class="reveal d1">
+          <h2>Presença na <span class="c-verde">Passeata pela Paz 2026</span>
+          </h2>
+          <p>O Instituto EVOLARE marcou presença na Passeata pela Paz 2026, com a Bandeira da Inclusão, trazendo visibilidade aos neurodivergentes.</p>
+          <p>Estar presente em movimentos como esse é parte da nossa Missão: inclusão construímos juntos, com as famílias, benfeitores, parceiros e comunidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipe -->
+  <section class="section bg-creme" id="equipe">
+    <span class="blob blob--amarelo" style="width:280px;height:280px;top:20px;left:-80px;opacity:.3;"></span>
+    <svg class="doodle d-coral float-c" style="width:34px;height:34px;top:60px;right:7%;" aria-hidden="true"><use href="#dood-heart"/></svg>
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Profissionais que fazem <span class="c-amarelo">acontecer</span></h2>
+        <p>Uma equipe multidisciplinar, unida pelo mesmo propósito.</p>
+      </div>
+      <div class="equipe-list">
+        <div class="equipe-item reveal"><span class="dot" style="background:var(--azul)"></span><div><b>Psicologia</b><span>Avaliação e acompanhamento</span></div></div>
+        <div class="equipe-item reveal d1"><span class="dot" style="background:var(--verde)"></span><div><b>Fonoaudiologia</b><span>Linguagem e comunicação</span></div></div>
+        <div class="equipe-item reveal d2"><span class="dot" style="background:var(--amarelo)"></span><div><b>Musicoterapia</b><span>Desenvolvimento pela música</span></div></div>
+        <div class="equipe-item reveal"><span class="dot" style="background:var(--laranja)"></span><div><b>Terapia ocupacional</b><span>Autonomia no dia a dia</span></div></div>
+        <div class="equipe-item reveal d1"><span class="dot" style="background:var(--coral)"></span><div><b>Nutrição</b><span>Saúde e alimentação</span></div></div>
+        <div class="equipe-item reveal d2"><span class="dot" style="background:var(--azul)"></span><div><b>Pedagogia e psicopedagogia</b><span>Aprendizagem e inclusão</span></div></div>
+        <div class="equipe-item reveal"><span class="dot" style="background:var(--verde)"></span><div><b>Neuropsicopedagogia</b><span>Aprendizagem e cognição</span></div></div>
+        <div class="equipe-item reveal d1"><span class="dot" style="background:var(--amarelo)"></span><div><b>Psicanálise</b><span>Escuta e acolhimento</span></div></div>
+        <div class="equipe-item reveal d2"><span class="dot" style="background:var(--laranja)"></span><div><b>Coordenação e gestão</b><span>Administração e parcerias</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos (avaliações reais do Google) -->
+  <section class="section bg-azul" id="depoimentos">
+    <span class="blob blob--verde" style="width:300px;height:300px;top:-70px;right:-80px;opacity:.3;"></span>
+    <svg class="doodle d-amarelo twinkle" style="width:32px;height:32px;top:60px;left:5%;" aria-hidden="true"><use href="#dood-star"/></svg>
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>O que as famílias <span class="c-verde">dizem</span></h2>
+        <p>Avaliações reais, publicadas no Google, demonstrando a entrega, veracidade e transparência dos trabalhos realizados pelo Instituto EVOLARE.</p>
+        <a class="nota-google" href="https://www.google.com/maps?cid=18043783572145219808" target="_blank" rel="noopener">
+          <b>5,0</b>
+          <span class="estrelas" aria-label="5 de 5 estrelas">★★★★★</span>
+          <span>24 avaliações no Google</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="marquee depo-marquee">
+      <div class="marquee__track">
+        <figure class="depo">
+          <span class="estrelas" aria-label="5 de 5 estrelas">★★★★★</span>
+          <blockquote>Meu neto tem um atendimento com a psicóloga e com a nutricionista, está sendo ótimo o atendimento a ele, todos muito educados e acolhedores e tem sido de grande valor pra nós essa ajuda.</blockquote>
+          <figcaption>
+            <span class="depo__avatar" style="background:var(--azul);">T</span>
+            <span class="depo__quem"><b>Tida Rezende</b><span>Avaliação no Google</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="depo">
+          <span class="estrelas" aria-label="5 de 5 estrelas">★★★★★</span>
+          <blockquote>Obrigado pelo excelente atendimento.</blockquote>
+          <figcaption>
+            <span class="depo__avatar depo__avatar--foto"><img src="assets/img/avaliacoes/daniel-xavier.jpg" alt="Daniel Xavier" loading="lazy"></span>
+            <span class="depo__quem"><b>Daniel Xavier</b><span>Avaliação no Google</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="depo">
+          <span class="estrelas" aria-label="5 de 5 estrelas">★★★★★</span>
+          <blockquote>O instituto é maravilhoso, super acolhedores, acolheu meu filho super bem, agradeço demais todo o pessoal de lá.</blockquote>
+          <figcaption>
+            <span class="depo__avatar" style="background:var(--coral);">L</span>
+            <span class="depo__quem"><b>Lucilene Borges</b><span>Avaliação no Google</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="depo">
+          <span class="estrelas" aria-label="5 de 5 estrelas">★★★★★</span>
+          <blockquote>Ótimo atendimento, com profissionais qualificados e atenciosos.</blockquote>
+          <figcaption>
+            <span class="depo__avatar depo__avatar--foto"><img src="assets/img/avaliacoes/weslene-geraldes.jpg" alt="Weslene Geraldes" loading="lazy"></span>
+            <span class="depo__quem"><b>Weslene Geraldes</b><span>Avaliação no Google</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="depo">
+          <span class="estrelas" aria-label="5 de 5 estrelas">★★★★★</span>
+          <blockquote>O Instituto EVOLARE é um local bem estruturado, preparado para trabalhar com as nossas crianças, os profissionais são super competentes. Minha experiência foi maravilhosa.</blockquote>
+          <figcaption>
+            <span class="depo__avatar" style="background:var(--laranja);">C</span>
+            <span class="depo__quem"><b>Clara Marques</b><span>Avaliação no Google</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="depo">
+          <span class="estrelas" aria-label="5 de 5 estrelas">★★★★★</span>
+          <blockquote>Lugar acolhedor, profissionais dedicados e atenciosos.</blockquote>
+          <figcaption>
+            <span class="depo__avatar" style="background:var(--verde);">M</span>
+            <span class="depo__quem"><b>Mariisis Caitano</b><span>Avaliação no Google</span></span>
+          </figcaption>
+        </figure>
+
+        <!-- Duplicado para o loop contínuo -->
+        <figure class="depo" aria-hidden="true">
+          <span class="estrelas">★★★★★</span>
+          <blockquote>Meu neto tem um atendimento com a psicóloga e com a nutricionista, está sendo ótimo o atendimento a ele, todos muito educados e acolhedores e tem sido de grande valor pra nós essa ajuda.</blockquote>
+          <figcaption>
+            <span class="depo__avatar" style="background:var(--azul);">T</span>
+            <span class="depo__quem"><b>Tida Rezende</b><span>Avaliação no Google</span></span>
+          </figcaption>
+        </figure>
+        <figure class="depo" aria-hidden="true">
+          <span class="estrelas">★★★★★</span>
+          <blockquote>Obrigado pelo excelente atendimento.</blockquote>
+          <figcaption>
+            <span class="depo__avatar depo__avatar--foto"><img src="assets/img/avaliacoes/daniel-xavier.jpg" alt="" loading="lazy"></span>
+            <span class="depo__quem"><b>Daniel Xavier</b><span>Avaliação no Google</span></span>
+          </figcaption>
+        </figure>
+        <figure class="depo" aria-hidden="true">
+          <span class="estrelas">★★★★★</span>
+          <blockquote>O instituto é maravilhoso, super acolhedores, acolheu meu filho super bem, agradeço demais todo o pessoal de lá.</blockquote>
+          <figcaption>
+            <span class="depo__avatar" style="background:var(--coral);">L</span>
+            <span class="depo__quem"><b>Lucilene Borges</b><span>Avaliação no Google</span></span>
+          </figcaption>
+        </figure>
+        <figure class="depo" aria-hidden="true">
+          <span class="estrelas">★★★★★</span>
+          <blockquote>Ótimo atendimento, com profissionais qualificados e atenciosos.</blockquote>
+          <figcaption>
+            <span class="depo__avatar depo__avatar--foto"><img src="assets/img/avaliacoes/weslene-geraldes.jpg" alt="" loading="lazy"></span>
+            <span class="depo__quem"><b>Weslene Geraldes</b><span>Avaliação no Google</span></span>
+          </figcaption>
+        </figure>
+        <figure class="depo" aria-hidden="true">
+          <span class="estrelas">★★★★★</span>
+          <blockquote>O Instituto EVOLARE é um local bem estruturado, preparado para trabalhar com as nossas crianças, os profissionais são super competentes. Minha experiência foi maravilhosa.</blockquote>
+          <figcaption>
+            <span class="depo__avatar" style="background:var(--laranja);">C</span>
+            <span class="depo__quem"><b>Clara Marques</b><span>Avaliação no Google</span></span>
+          </figcaption>
+        </figure>
+        <figure class="depo" aria-hidden="true">
+          <span class="estrelas">★★★★★</span>
+          <blockquote>Lugar acolhedor, profissionais dedicados e atenciosos.</blockquote>
+          <figcaption>
+            <span class="depo__avatar" style="background:var(--verde);">M</span>
+            <span class="depo__quem"><b>Mariisis Caitano</b><span>Avaliação no Google</span></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reconhecimento e conquistas -->
+  <section class="section bg-amarelo" id="reconhecimento">
+    <span class="blob blob--amarelo" style="width:300px;height:300px;top:-60px;right:-80px;opacity:.32;"></span>
+    <svg class="doodle d-coral twinkle" style="width:30px;height:30px;top:60px;left:5%;" aria-hidden="true"><use href="#dood-star"/></svg>
+    <svg class="doodle d-azul float-b" style="width:110px;height:38px;bottom:40px;right:6%;--r:-4deg;" aria-hidden="true"><use href="#dood-squiggle"/></svg>
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Reconhecimento e <span class="c-amarelo">conquistas</span></h2>
+        <p>O trabalho do Instituto EVOLARE tem sido reconhecido por autoridades e instituições que valorizam a causa da inclusão.</p>
+      </div>
+      <div class="conquistas-grid">
+        <figure class="conquista reveal">
+          <img src="assets/img/conquistas/certificado-senado.jpg" alt="Sebastião Felismino recebendo Certificado de Reconhecimento no Senado Federal">
+          <figcaption>
+            <b>Certificado de Reconhecimento — Senado Federal</b>
+            <span>Homenagem concedida pelo Senador Izalci Lucas à liderança comunitária do instituto.</span>
+          </figcaption>
+        </figure>
+        <figure class="conquista reveal d1">
+          <img src="assets/img/conquistas/diploma-honra-merito.jpg" alt="Entrega do Diploma de Honra ao Mérito na Câmara Municipal">
+          <figcaption>
+            <b>Diploma de Honra ao Mérito</b>
+            <span>Reconhecimento da Câmara Municipal ao trabalho social desenvolvido pelo EVOLARE.</span>
+          </figcaption>
+        </figure>
+        <figure class="conquista reveal d2">
+          <img src="assets/img/conquistas/reconhecimento-1.jpg" alt="Liderança do Instituto EVOLARE com o Juiz Dr. Carlos José Limongi">
+          <figcaption>
+            <b>Reconhecimento público</b>
+            <span>A Parceria do Meritíssimo Juiz Dr. Carlos José Limongi, do Juizado da Infância e Juventude Comarca de Anápolis – Goiás, com o Instituto EVOLARE.</span>
+          </figcaption>
+        </figure>
+        <figure class="conquista reveal d3">
+          <img src="assets/img/conquistas/reconhecimento-2.jpg" alt="Reunião do Instituto EVOLARE com parceiros institucionais">
+          <figcaption>
+            <b>Parcerias institucionais</b>
+            <span>Tratativas e apoio do Instituto EVOLARE com o Delegado Sérgio Ferreira Nascimento, da Receita Federal do Brasil em Anápolis – Goiás.</span>
+          </figcaption>
+        </figure>
+        <figure class="conquista reveal d4">
+          <img src="assets/img/conquistas/acia-fundo-social.jpg" alt="Liderança do Instituto EVOLARE discursando na ACIA, com a placa de apoio do Fundo Social Sicredi">
+          <figcaption>
+            <b>ACIA</b>
+            <span>Associação Comercial e Industrial de Anápolis-Goiás, através do Presidente Luiz Cláudio Ledra, é apoiadora desta obra SOCIAL, enaltecendo todo o trabalho entregue pelo Instituto EVOLARE.</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="util-publica reveal d2">
+        <span class="ic">🏛️</span>
+        <div class="txt">
+          <b>Utilidade Pública Municipal</b>
+          <p>O Instituto EVOLARE, em seu Reconhecimento Utilidade Pública Municipal, com fulcro no Projeto de Lei Ordinária nº 46, de 2026, em Anápolis – Goiás.</p>
+        </div>
+        <a href="assets/docs/utilidade-publica-projeto-lei.pdf" target="_blank" rel="noopener" class="btn btn--primary"><svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Ver documento</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registro no CMDCA -->
+  <section class="section bg-verde" id="cmdca">
+    <span class="blob blob--azul" style="width:300px;height:300px;top:-70px;right:-80px;opacity:.32;"></span>
+    <svg class="doodle d-amarelo twinkle" style="width:30px;height:30px;top:56px;left:5%;" aria-hidden="true"><use href="#dood-star"/></svg>
+    <div class="container">
+      <div class="sobre">
+        <div class="sobre__media reveal">
+          <svg class="doodle d-coral twinkle" style="width:30px;height:30px;top:-16px;left:-14px;z-index:2;" aria-hidden="true"><use href="#dood-star"/></svg>
+          <a href="assets/docs/certificado-cmdca.pdf" target="_blank" rel="noopener"><img src="assets/img/conquistas/certificado-cmdca.jpg" alt="Certificado de registro do Instituto EVOLARE no Conselho Municipal dos Direitos da Criança e do Adolescente de Anápolis, válido até 18/02/2027" width="1400" height="984" style="aspect-ratio:auto; height:auto; background:#fff;"></a>
+        </div>
+        <div class="reveal d1">
+          <h2>Registrado no <span class="c-azul">CMDCA de Anápolis</span>
+          </h2>
+          <p>O Instituto EVOLARE é registrado no Conselho Municipal dos Direitos da Criança e do Adolescente de Anápolis (CMDCA), com credenciamento válido conforme deliberação do Colegiado do Conselho em reunião de 18 de agosto de 2026.</p>
+          <p>O registro tem como base o Estatuto da Criança e do Adolescente (Lei 8.069/90, artigos 90 e 91) e a Lei Municipal 3.731/2014, e garante que o instituto atua dentro das normas de proteção à criança e ao adolescente, sob fiscalização do Conselho.</p>
+          <ul class="campanha__lista">
+            <li><b>Certificado emitido:</b> 21 de agosto de 2026;</li>
+            <li><b>Validade:</b> até 18 de fevereiro de 2027;</li>
+            <li><b>Assinado digitalmente</b> pela Presidência e Vice-Presidência do CMDCA.</li>
+          </ul>
+          <a href="assets/docs/certificado-cmdca.pdf" target="_blank" rel="noopener" class="btn btn--primary"><svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Ver certificado (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVOLARE na mídia -->
+  <section class="section bg-creme" id="midia">
+    <span class="blob blob--azul" style="width:300px;height:300px;top:-70px;left:-80px;opacity:.3;"></span>
+    <svg class="doodle d-coral twinkle" style="width:30px;height:30px;top:58px;right:6%;" aria-hidden="true"><use href="#dood-star"/></svg>
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>EVOLARE na <span class="c-azul">mídia</span></h2>
+        <p>O trabalho do instituto tem ganhado espaço na imprensa de Anápolis – Goiás e região.</p>
+      </div>
+      <div class="midia-grid">
+        <article class="midia-card reveal">
+          <img class="midia-card__foto" src="assets/img/midia/entrevista-visao-anapolis.jpg" alt="Liderança do Instituto EVOLARE em entrevista no programa Visão Anápolis">
+          <div class="midia-card__body">
+            <span class="midia-tag">Entrevista · TV</span>
+            <h3>Entrevista no Visão Anápolis (Canal 14)</h3>
+            <p>A liderança do Instituto EVOLARE foi convidada do programa Visão Anápolis, no Canal 14, para falar sobre o cuidado com pessoas neurodivergentes e o trabalho social do instituto.</p>
+          </div>
+        </article>
+        <article class="midia-card reveal d1">
+          <div class="midia-card__body">
+            <span class="midia-tag">Publicidade · Jornal</span>
+            <h3>Publicidade — Jornal Contexto</h3>
+            <p>O Instituto EVOLARE foi publicado no Jornal Contexto (Anápolis – Goiás, 03 de julho de 2026), nas Publicações Legais. Abaixo, o recorte da edição; o documento completo está disponível em PDF.</p>
+            <div class="jornal-recortes">
+              <img src="assets/img/midia/jornal-contexto-manchete.jpg" alt="Manchete do Jornal Contexto na edição de 03 de julho de 2026">
+              <img src="assets/img/midia/jornal-contexto-evolare.jpg" alt="Publicação legal do Instituto EVOLARE no Jornal Contexto">
+            </div>
+            <a href="assets/docs/jornal-contexto-editais.pdf" target="_blank" rel="noopener" class="btn btn--primary"><svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v8a2 2 0 0 1-2 2M8 9h5M8 13h5M8 16h3"/></svg>Ver publicação completa (PDF)</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transparência teaser -->
+  <section class="section bg-coral">
+    <span class="blob blob--coral" style="width:300px;height:300px;bottom:-90px;right:-70px;"></span>
+    <div class="container">
+      <div class="trans-teaser">
+        <div class="reveal">
+          <h2>Contas abertas, <span class="c-coral">confiança de verdade</span></h2>
+          <p>Princípios não são um detalhe, são a base de tudo. Por este motivo deixamos à disposição da comunidade os documentos que comprovam a regularidade e a idoneidade do Instituto EVOLARE, das certidões negativas às demonstrações contábeis.</p>
+          <ul>
+            <li><b>Estatuto social</b> e cartão CNPJ;</li>
+            <li><b>Certidões negativas</b> (federal, estadual, municipal, FGTS e trabalhista);</li>
+            <li><b>Balanços, DRE</b> e demais demonstrações contábeis.</li>
+          </ul>
+          <p style="margin-top:22px;"><a href="transparencia.html" class="btn btn--primary"><svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 13l2 2 4-4"/></svg>Ver documentos</a></p>
+        </div>
+        <div class="sobre__media reveal d1">
+          <svg class="doodle d-azul twinkle" style="width:30px;height:30px;top:-16px;right:-14px;z-index:2;" aria-hidden="true"><use href="#dood-star"/></svg>
+          <img src="assets/img/galeria/fachada-evolare.jpg" alt="Fachada do Instituto EVOLARE com a logo">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Futuras instalações -->
+  <section class="section bg-azul" id="futura-sede">
+    <span class="blob blob--azul" style="width:320px;height:320px;bottom:-90px;right:-70px;opacity:.32;"></span>
+    <svg class="doodle d-laranja float-c" style="width:44px;height:44px;top:56px;left:5%;" aria-hidden="true"><use href="#dood-spiral"/></svg>
+    <div class="container">
+      <div class="sobre">
+        <div class="sobre__media reveal">
+          <svg class="doodle d-coral twinkle" style="width:30px;height:30px;top:-16px;left:-14px;z-index:2;" aria-hidden="true"><use href="#dood-star"/></svg>
+          <img src="assets/img/conquistas/futura-sede-3d.jpg" alt="Projeto em 3D da futura sede do Instituto EVOLARE">
+        </div>
+        <div class="reveal d1">
+          <h2>As futuras instalações do <span class="c-azul">EVOLARE</span>
+          </h2>
+          <p>Estamos construindo um SONHO: uma sede maior, moderna e totalmente preparada para acolher ainda mais crianças e adolescentes neurodivergentes e famílias, com espaços pensados em oferecer o melhor para os nossos atendidos.</p>
+          <p>Este projeto da nova SEDE do Instituto EVOLARE nos proporciona, através de BENFEITORES, DOADORES e PARCEIROS, tornar essa realidade um orgulho para a nossa comunidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bingo Solidário -->
+  <section class="section bg-laranja" id="bingo">
+    <span class="blob blob--amarelo" style="width:300px;height:300px;top:-70px;left:-80px;opacity:.35;"></span>
+    <svg class="doodle d-coral twinkle" style="width:30px;height:30px;top:56px;right:6%;" aria-hidden="true"><use href="#dood-star"/></svg>
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Bingo Solidário <span class="c-coral">EVOLARE</span></h2>
+        <p>No dia 27 de setembro de 2026, o Feirão do IAPC lotou para o Bingo Show EVOLARE, evento beneficente que reuniu famílias, parceiros e a comunidade de Anápolis com o objetivo de arrecadar recursos para a construção da nova SEDE do instituto. Obrigado a cada pessoa que comprou sua cartela, aos patrocinadores e aos voluntários!</p>
+      </div>
+      <div class="bingo-grid reveal d1">
+        <div class="bingo-video">
+          <video src="assets/video/bingo-show-evolare.mp4" poster="assets/img/bingo/bingo-video-capa.jpg" width="464" height="832" autoplay muted loop playsinline preload="auto" aria-label="Vídeo do público no Bingo Solidário EVOLARE, no Feirão do IAPC"></video>
+        </div>
+        <div class="bingo-fotos">
+          <img src="assets/img/bingo/bingo-sorteio.jpg" alt="Sorteio no palco do Bingo Solidário EVOLARE, com o globo de bolas e o painel de números" width="1400" height="788">
+          <img src="assets/img/bingo/bingo-publico.jpg" alt="Público lotando as mesas do Bingo Solidário EVOLARE no Feirão do IAPC" width="1400" height="788">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Apoiar -->
+  <section class="section bg-creme" id="apoiar">
+    <div class="container">
+      <div class="apoio reveal">
+        <svg class="doodle float-a" style="width:60px;height:60px;top:18px;left:6%;--r:-8deg;" aria-hidden="true"><use href="#dood-star"/></svg>
+        <svg class="doodle float-c" style="width:44px;height:44px;bottom:20px;left:14%;" aria-hidden="true"><use href="#dood-heart"/></svg>
+        <svg class="doodle float-b" style="width:120px;height:40px;top:30px;right:5%;--r:6deg;" aria-hidden="true"><use href="#dood-squiggle"/></svg>
+        <svg class="doodle float-a" style="width:40px;height:40px;bottom:26px;right:12%;" aria-hidden="true"><use href="#dood-spiral"/></svg>
+        <h2>Sua ajuda vira desenvolvimento</h2>
+        <p>Cada benfeitor, doador, parceiro ou divulgação ajuda o Instituto EVOLARE a acolher mais atendidos e a manter o atendimento de qualidade. Fale com a gente e descubra como ajudar!</p>
+        <a href="https://wa.me/5562994092612?text=Ol%C3%A1%2C%20quero%20apoiar%20o%20Instituto%20EVOLARE" target="_blank" rel="noopener" class="btn btn--light"><svg class="btn__ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg>Falar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doação -->
+  <section class="section bg-verde" id="doar">
+    <span class="blob blob--verde" style="width:300px;height:300px;bottom:-80px;right:-80px;opacity:.3;"></span>
+    <svg class="doodle d-amarelo twinkle" style="width:32px;height:32px;top:58px;left:5%;" aria-hidden="true"><use href="#dood-star"/></svg>
+    <div class="container">
+      <div class="doacao">
+        <div class="reveal">
+          <h2>Faça uma <span class="c-verde">doação</span></h2>
+          <p>Sua contribuição sustenta os atendimentos, os materiais e as ações sociais do instituto. Toda doação, de qualquer valor, ajuda a acolher mais famílias.</p>
+          <p>Você pode doar por transferência ou pelo PIX ao lado. Para doações recorrentes, parcerias ou recibo, fale com a gente pelo WhatsApp.</p>
+          <a href="https://wa.me/5562994092612?text=Ol%C3%A1%2C%20quero%20fazer%20uma%20doa%C3%A7%C3%A3o%20para%20o%20Instituto%20EVOLARE" target="_blank" rel="noopener" class="btn btn--primary"><svg class="btn__ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg>Falar sobre doação</a>
+        </div>
+        <div class="doacao__card reveal d1">
+          <div class="doacao__banco">
+            <img src="assets/img/midia/sicoob.jpg" alt="Banco Sicoob">
+            <span>Conta do<br>Instituto EVOLARE</span>
+          </div>
+          <div class="doacao__linha"><b>Favorecido</b><span>Instituto EVOLARE</span></div>
+          <div class="doacao__linha"><b>Banco</b><span>Sicoob</span></div>
+          <div class="doacao__linha"><b>Agência</b><span>5024</span></div>
+          <div class="doacao__linha"><b>Conta</b><span>138.689-1</span></div>
+          <div class="doacao__pix">
+            <b>PIX · CNPJ</b>
+            <span>28.968.118/0001-27</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section class="section bg-amarelo" id="contato">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Fale com o <span class="c-amarelo">Instituto EVOLARE</span></h2>
+      </div>
+      <div class="contato-grid">
+        <div class="reveal">
+          <div class="contato-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.7-7-11.5A7 7 0 0 1 19 9.5C19 14.3 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><div><b>Endereço</b><br><span class="muted">Rua 15 de Dezembro, 158, Sala 36, Centro, Anápolis – Goiás, CEP 75.024-070</span></div></div>
+          <div class="contato-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><b>E-mail</b><br><a href="mailto:institutoevolare@gmail.com">institutoevolare@gmail.com</a></div></div>
+          <div class="contato-item"><span class="ic ic--wa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.38c-.29-.15-1.7-.84-1.96-.94-.26-.1-.45-.14-.64.15-.19.29-.74.94-.9 1.13-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.44-.5.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.08 4.88 4.32.68.29 1.21.47 1.63.6.69.22 1.31.19 1.8.12.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12 2C6.5 2 2 6.5 2 12c0 1.77.46 3.42 1.27 4.86L2 22l5.25-1.38A9.94 9.94 0 0 0 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></span><div><b>WhatsApp e telefone</b><br><a href="https://wa.me/5562994092612" target="_blank" rel="noopener">(62) 99409-2612</a></div></div>
+          <div class="contato-item"><span class="ic ic--ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></span><div><b>Instagram</b><br><a href="https://instagram.com/institutoevolare" target="_blank" rel="noopener">@institutoevolare</a></div></div>
+          <div class="contato-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9.5 13h5M9.5 16.5h5"/></svg></span><div><b>CNPJ</b><br><span class="muted">28.968.118/0001-27</span></div></div>
+        </div>
+        <a class="map-embed reveal d1" href="https://www.google.com/maps/search/?api=1&query=Rua%2015%20de%20Dezembro%2C%20158%2C%20Centro%2C%20An%C3%A1polis%20-%20GO" target="_blank" rel="noopener" aria-label="Abrir a localização do Instituto EVOLARE no Google Maps">
+          <img src="assets/img/mapa-localizacao.jpg?v=2" alt="Mapa da localização do Instituto EVOLARE, no Setor Central de Anápolis – Goiás" loading="lazy" width="1280" height="720">
+          <span class="map-embed__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.7-7-11.5A7 7 0 0 1 19 9.5C19 14.3 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Ver no Google Maps</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faixa de quebra-cabeça (fecha a página antes do rodapé) -->
+  <div class="puzzle-band puzzle-band--rev" role="presentation"></div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <svg class="doodle d-amarelo" style="width:80px;height:80px;top:24px;right:6%;opacity:.14;color:#fff;" aria-hidden="true"><use href="#dood-spiral"/></svg>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="assets/img/logo-evolare-branco.png" alt="Instituto EVOLARE">
+          <p style="max-width:34ch;">Cuidado, inclusão e desenvolvimento para pessoas neurodivergentes em Anápolis – Goiás.</p>
+        </div>
+        <div>
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#sobre">Quem somos</a></li>
+            <li><a href="#atuacao">O que fazemos</a></li>
+            <li><a href="#equipe">Equipe</a></li>
+            <li><a href="transparencia.html">Transparência</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contato</h4>
+          <ul>
+            <li>Rua 15 de Dezembro, 158, Sala 36</li>
+            <li>Centro, Anápolis – Goiás</li>
+            <li><a href="mailto:institutoevolare@gmail.com">institutoevolare@gmail.com</a></li>
+            <li><a href="https://instagram.com/institutoevolare" target="_blank" rel="noopener">@institutoevolare</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="gradient-bar"></div>
+    <div class="footer-bottom">
+      Instituto EVOLARE · CNPJ 28.968.118/0001-27 · Associação sem fins lucrativos · Anápolis – Goiás
+    </div>
+  </footer>
+
+  <!-- Voltar ao topo -->
+  <button class="to-top" id="toTop" aria-label="Voltar ao topo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  </button>
+
+  <script src="assets/js/main.js?v=5"></script>
+</body>
+</html>

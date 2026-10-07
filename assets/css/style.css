@@ -1,0 +1,652 @@
+/* ==========================================================================
+   Instituto Evolare — estilo base
+   Paleta e tipografia seguem identidade/design-guide.md
+   Clean, colorido por seção, com pegada desenhada à mão (doodles),
+   microinterações e animações leves.
+   ========================================================================== */
+
+:root{
+  --azul:   #4C94C6;
+  --verde:  #87BC8A;
+  --amarelo:#E9C452;
+  --laranja:#EC9A5E;
+  --coral:  #DB5D6B;
+
+  --azul-forte:  #2f74a6;
+  --verde-forte: #5a9e5f;
+  --coral-forte: #c8485a;
+
+  --fundo:  #FFFFFF;
+  --fundo-2:#FBF9F5;
+  --creme:  #FCF7EE;   /* off-white quente, pegada "papel" */
+  --tinta:  #2B2A28;   /* charcoal quente pros traços desenhados */
+  --texto:  #3D3D3D;
+  --texto-2:#6B6B6B;
+  --borda:  #ECE7DF;
+
+  /* fundos suaves por cor da marca (clean, mas com cor) */
+  --tint-azul:   #E4EFFA;
+  --tint-verde:  #E5F3E7;
+  --tint-amarelo:#FBF0D3;
+  --tint-laranja:#FCE5D3;
+  --tint-coral:  #FBE3E8;
+
+  --degrade: linear-gradient(90deg, #4C94C6, #87BC8A, #E9C452, #EC9A5E, #DB5D6B);
+
+  --raio:   18px;
+  --raio-sm:12px;
+  --sombra: 0 10px 30px rgba(61,61,61,.08);
+  --sombra-2:0 4px 14px rgba(61,61,61,.06);
+  --max:    1140px;
+  --fonte-titulo: "Poppins", "Nunito", system-ui, "Segoe UI", Arial, sans-serif;
+  --fonte-corpo:  "Nunito", system-ui, "Segoe UI", Arial, sans-serif;
+  --fonte-mao:    "Caveat", "Segoe Script", cursive;
+}
+
+*{ box-sizing:border-box; }
+/* touch-action:manipulation mata o zoom acidental por toque-duplo no celular,
+   mas mantém a pinça de dois dedos (acessibilidade pra quem tem baixa visão). */
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; text-size-adjust:100%; touch-action:manipulation; }
+body{
+  margin:0;
+  font-family:var(--fonte-corpo);
+  color:var(--texto);
+  background:var(--creme);
+  line-height:1.7;
+  font-size:17px;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  /* Bloqueia seleção/cópia do texto (fica mais limpo). Reabilitado abaixo
+     nos dados que o visitante PRECISA copiar (PIX, CNPJ, conta, e-mail…). */
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  user-select:none;
+  -webkit-touch-callout:none;
+}
+/* Exceções: dados de doação e contato continuam selecionáveis/copiáveis. */
+.doacao__card, .doacao__card *, .contato-item, .contato-item *,
+.site-footer, .site-footer *, .selectable, .selectable *,
+input, textarea{
+  -webkit-user-select:text; -moz-user-select:text; -ms-user-select:text; user-select:text;
+  -webkit-touch-callout:default;
+}
+img{ max-width:100%; display:block; }
+a{ color:var(--laranja); text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+h1,h2,h3,h4{ font-family:var(--fonte-titulo); color:var(--texto); line-height:1.15; margin:0 0 .5em; font-weight:700; }
+h1{ font-size:clamp(2.1rem, 5.2vw, 3.4rem); font-weight:800; letter-spacing:-.01em; }
+h2{ font-size:clamp(1.7rem, 3.6vw, 2.45rem); font-weight:800; letter-spacing:-.01em; }
+h3{ font-size:1.25rem; }
+p{ margin:0 0 1rem; }
+
+/* palavras coloridas dentro dos títulos (pegada Faber-Castell) */
+.c-azul{ color:var(--azul-forte); }
+.c-verde{ color:var(--verde-forte); }
+.c-amarelo{ color:#c99b16; }
+.c-laranja{ color:var(--laranja); }
+.c-coral{ color:var(--coral-forte); }
+
+.container{ width:100%; max-width:var(--max); margin:0 auto; padding:0 24px; }
+.section{ padding:82px 0; position:relative; overflow:hidden; }
+.section--alt{ background:var(--fundo-2); }
+.bg-azul{ background:var(--tint-azul); }
+.bg-verde{ background:var(--tint-verde); }
+.bg-amarelo{ background:var(--tint-amarelo); }
+.bg-laranja{ background:var(--tint-laranja); }
+.bg-coral{ background:var(--tint-coral); }
+.bg-creme{ background:var(--creme); }
+/* Texto alinhado à esquerda, nunca justificado. Justificado em português exige hifenização
+   (senão abre "rios" de espaço entre as palavras), e a hifenização enche o texto de hífens
+   cortando palavra no meio. Os dois resultados são piores que o alinhamento simples. */
+.text-justify{ text-align:left; }
+.center{ text-align:center; }
+.muted{ color:var(--texto-2); }
+
+/* textura de papel pontilhada bem sutil no fundo geral */
+body::before{
+  content:""; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
+  background-image:radial-gradient(rgba(43,42,40,.045) 1px, transparent 1.4px);
+  background-size:22px 22px;
+}
+body > *{ position:relative; z-index:1; }
+
+/* blobs decorativos de fundo (cor suave, dão vida sem poluir) */
+.blob{ position:absolute; border-radius:50%; filter:blur(70px); opacity:.5; z-index:0; pointer-events:none; }
+.blob--azul{ background:rgba(76,148,198,.28); }
+.blob--verde{ background:rgba(135,188,138,.30); }
+.blob--amarelo{ background:rgba(233,196,82,.30); }
+.blob--laranja{ background:rgba(236,154,94,.28); }
+.blob--coral{ background:rgba(219,93,107,.24); }
+.container, .section-head, .section > .container{ position:relative; z-index:1; }
+
+/* ==========================================================================
+   Doodles desenhados à mão (SVG sprite via <use>)
+   ========================================================================== */
+.doodle{ position:absolute; z-index:0; pointer-events:none; overflow:visible; opacity:.9; }
+.doodle use, .doodle path, .doodle *{ vector-effect:non-scaling-stroke; }
+.d-tinta{ color:var(--tinta); }
+.d-azul{ color:var(--azul); }
+.d-verde{ color:var(--verde); }
+.d-amarelo{ color:var(--amarelo); }
+.d-laranja{ color:var(--laranja); }
+.d-coral{ color:var(--coral); }
+.spin-slow{ animation:spin 26s linear infinite; }
+.float-a{ animation:floaty 6s ease-in-out infinite; }
+.float-b{ animation:floaty 7.5s ease-in-out infinite; animation-delay:-2s; }
+.float-c{ animation:floaty 9s ease-in-out infinite; animation-delay:-4s; }
+@keyframes floaty{ 0%,100%{ transform:translateY(0) rotate(var(--r,0deg)); } 50%{ transform:translateY(-16px) rotate(calc(var(--r,0deg) + 4deg)); } }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+@keyframes twinkle{ 0%,100%{ transform:scale(1); opacity:.85; } 50%{ transform:scale(1.25); opacity:1; } }
+.twinkle{ animation:twinkle 3.4s ease-in-out infinite; transform-origin:center; }
+
+/* Barra de degradê: assinatura da marca */
+.gradient-bar{ height:6px; background:var(--degrade); background-size:200% 100%; width:100%; animation:slide-gradient 8s linear infinite; }
+@keyframes slide-gradient{ to{ background-position:200% 0; } }
+
+/* Barra de progresso de leitura (topo) */
+.progress{ position:fixed; top:0; left:0; height:4px; width:0%; z-index:80; background:var(--degrade); background-size:200% 100%; box-shadow:0 0 10px rgba(219,93,107,.4); transition:width .1s linear; }
+
+/* Botões */
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--fonte-titulo);
+  font-weight:700;
+  padding:14px 28px;
+  border-radius:999px;
+  border:2px solid transparent;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+  text-align:center;
+}
+.btn:hover{ text-decoration:none; transform:translateY(-3px); }
+.btn__ic{ width:19px; height:19px; flex:none; }
+.btn__ic--seta{ transition:transform .2s ease; }
+.btn:hover .btn__ic--seta{ transform:translateX(4px); }
+.btn:active{ transform:translateY(-1px); }
+.btn--primary{ background:var(--laranja); color:#fff; box-shadow:0 8px 20px rgba(236,154,94,.35); }
+.btn--primary:hover{ background:var(--coral); box-shadow:0 14px 28px rgba(219,93,107,.40); }
+.btn--ghost{ background:#fff; color:var(--texto); border-color:var(--tinta); box-shadow:2px 3px 0 var(--tinta); }
+.btn--ghost:hover{ border-color:var(--tinta); color:var(--coral-forte); box-shadow:4px 5px 0 var(--tinta); }
+.btn--light{ background:#fff; color:var(--coral); box-shadow:0 10px 24px rgba(0,0,0,.14); }
+.btn--light:hover{ color:var(--laranja); }
+/* brilho que passa no hover */
+.btn::after{ content:""; position:absolute; top:0; left:-120%; width:60%; height:100%; background:linear-gradient(120deg, transparent, rgba(255,255,255,.45), transparent); transform:skewX(-18deg); transition:left .5s ease; }
+.btn:hover::after{ left:140%; }
+
+/* ==========================================================================
+   Animações de entrada (scroll reveal)
+   ========================================================================== */
+.reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+.reveal.in{ opacity:1; transform:none; }
+.reveal.d1{ transition-delay:.08s; }
+.reveal.d2{ transition-delay:.16s; }
+.reveal.d3{ transition-delay:.24s; }
+.reveal.d4{ transition-delay:.32s; }
+.reveal.d5{ transition-delay:.40s; }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+  .gradient-bar, .marquee__track, .ribbon__track, .hero__mascote, .float, .float-a, .float-b, .float-c, .spin-slow, .twinkle, .puzzle-band{ animation:none !important; }
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.site-header{ position:sticky; top:0; z-index:50; background:rgba(252,247,238,.86); backdrop-filter:blur(10px); border-bottom:1px solid var(--borda); }
+.nav{ display:flex; align-items:center; justify-content:space-between; gap:20px; padding:12px 24px; max-width:var(--max); margin:0 auto; }
+.nav__logo img{ width:172px; height:auto; transition:transform .2s ease; }
+.nav__logo:hover img{ transform:scale(1.03) rotate(-1deg); }
+.nav__menu{ display:flex; align-items:center; gap:26px; list-style:none; margin:0; padding:0; }
+.nav__menu a{ color:var(--texto); font-family:var(--fonte-titulo); font-weight:600; font-size:.98rem; position:relative; }
+.nav__menu a:not(.btn)::after{ content:""; position:absolute; left:0; bottom:-6px; width:0; height:2px; background:var(--degrade); background-size:200% 100%; border-radius:2px; transition:width .25s ease; }
+.nav__menu a:not(.btn):hover{ color:var(--laranja); text-decoration:none; }
+.nav__menu a:not(.btn):hover::after{ width:100%; }
+.nav__toggle{ display:none; background:none; border:0; cursor:pointer; padding:8px; }
+.nav__toggle span{ display:block; width:26px; height:3px; background:var(--texto); border-radius:3px; margin:5px 0; transition:.2s; }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero{ position:relative; background:linear-gradient(180deg, #FCF7EE 0%, #F1F7FC 100%); overflow:hidden; }
+.hero__grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:center; padding:78px 0 74px; position:relative; z-index:1; }
+.hero h1 .grad{ position:relative; background:var(--degrade); background-size:200% 100%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:slide-gradient 8s linear infinite; white-space:nowrap; }
+.hero p.lead{ font-size:1.16rem; color:var(--texto-2); max-width:40ch; }
+.hero__cta{ display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; align-items:center; }
+.hero__art{ position:relative; }
+/* Mascote em vídeo com fundo recortado (WebM com canal alpha).
+   Nada de border-radius, sombra, fundo ou moldura aqui: qualquer um deles voltaria a
+   desenhar uma "caixa" em volta dele, que é justamente o que não queremos. */
+.hero__mascote{
+  display:block; width:100%; max-width:380px; height:auto; margin:0 auto;
+  position:relative; z-index:2;
+  background:transparent; border:0; outline:0;
+  pointer-events:none;   /* nada de controles ou pausa no hover */
+  animation:float 6s ease-in-out infinite;
+}
+.hero__mascote::-webkit-media-controls,
+.hero__mascote::-webkit-media-controls-enclosure{ display:none !important; }
+@keyframes float{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-14px); } }
+.hero__tag{ position:absolute; z-index:3; bottom:12%; right:-6px; background:#fff; border:2px solid var(--tinta); border-radius:14px; padding:8px 14px; font-family:var(--fonte-mao); font-size:1.35rem; color:var(--texto); box-shadow:4px 5px 0 var(--tinta); transform:rotate(4deg); }
+.hero__tag b{ color:var(--verde-forte); font-weight:700; }
+/* doodles flutuantes do hero */
+.hero .doodle{ z-index:1; }
+
+/* ==========================================================================
+   Fita diagonal de valores (ribbon marquee)
+   ========================================================================== */
+.ribbon{ position:relative; z-index:2; background:var(--tinta); color:#fff; padding:15px 0; overflow:hidden; transform:rotate(-2deg) scale(1.04); margin:-14px 0; box-shadow:0 12px 30px rgba(43,42,40,.18); }
+.ribbon__track{ display:flex; gap:0; width:max-content; animation:scroll-x 30s linear infinite; }
+.ribbon span{ font-family:var(--fonte-titulo); font-weight:800; font-size:1.05rem; letter-spacing:.02em; text-transform:uppercase; padding:0 22px; display:inline-flex; align-items:center; gap:22px; white-space:nowrap; }
+.ribbon span::after{ content:"✷"; color:var(--amarelo); font-size:1.1rem; }
+.ribbon .r-azul{ color:#bfe0f5; } .ribbon .r-verde{ color:#c9ebca; } .ribbon .r-amarelo{ color:#f6e3a3; } .ribbon .r-laranja{ color:#f8d3b7; } .ribbon .r-coral{ color:#f4c0c7; }
+
+/* ==========================================================================
+   Faixa de quebra-cabeça (peça = símbolo da conscientização do autismo)
+   Tile SVG de 1000x200 gerado sob medida: os encaixes das bordas casam,
+   então o background-repeat roda sem emenda visível.
+   ========================================================================== */
+.puzzle-band{
+  position:relative; z-index:2;
+  height:88px; width:100%;
+  background-image:url("../img/faixa-quebra-cabeca.svg");
+  background-repeat:repeat-x;
+  background-position:0 50%;
+  background-size:440px 88px;   /* proporção do tile: 5:1 */
+  animation:puzzle-scroll 34s linear infinite;
+  filter:drop-shadow(0 5px 12px rgba(43,42,40,.10));
+}
+@keyframes puzzle-scroll{ to{ background-position:-440px 50%; } }
+.puzzle-band--rev{ animation-direction:reverse; }
+
+/* ==========================================================================
+   Seção da campanha (cartaz "É aqui na Evolare que seu filho pode ser feliz")
+   ========================================================================== */
+.campanha{ display:grid; grid-template-columns:.92fr 1.08fr; gap:52px; align-items:center; position:relative; z-index:1; }
+.campanha__art{ position:relative; justify-self:center; }
+.campanha__art img{
+  width:100%; max-width:400px; height:auto; aspect-ratio:4/5; object-fit:cover;
+  border-radius:22px; border:3px solid var(--tinta);
+  box-shadow:8px 10px 0 rgba(43,42,40,.9);
+  transform:rotate(-1.5deg);
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+.campanha__art:hover img{ transform:rotate(0) translateY(-5px); box-shadow:12px 15px 0 rgba(43,42,40,.9); }
+.campanha__tag{
+  position:absolute; z-index:2; bottom:-14px; right:-10px;
+  background:#fff; border:2px solid var(--tinta); border-radius:14px;
+  padding:8px 16px; font-family:var(--fonte-mao); font-size:1.35rem; color:var(--texto);
+  box-shadow:4px 5px 0 var(--tinta); transform:rotate(3deg);
+}
+.campanha__tag b{ color:var(--azul-forte); font-weight:700; }
+.campanha__lista{ margin:20px 0 26px; padding:0; list-style:none; }
+.campanha__lista li{ padding:8px 0 8px 34px; position:relative; color:var(--texto-2); }
+.campanha__lista li::before{ content:"🧩"; position:absolute; left:0; top:7px; font-size:1rem; line-height:1.4; }
+.campanha__lista li b{ color:var(--texto); font-weight:700; }
+
+/* ==========================================================================
+   Frentes de atuação (personagens ilustrados + traços de pincel)
+   Fundo de papel, traço preto grosso, personagem recortado por cima.
+   ========================================================================== */
+.frentes-sec{ background:var(--creme); }
+.frentes{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; position:relative; z-index:1; }
+.frente{ text-align:center; position:relative; }
+.frente__art{ position:relative; height:280px; display:flex; align-items:flex-end; justify-content:center; }
+.frente__art img{
+  position:relative; z-index:2;
+  height:100%; width:auto; max-width:100%; object-fit:contain;
+  transition:transform .3s cubic-bezier(.2,.7,.2,1);
+}
+.frente:hover .frente__art img{ transform:translateY(-10px) rotate(-1.5deg); }
+/* mancha de cor atrás do personagem, no espírito da referência (forma irregular, não círculo) */
+.frente__blob{
+  position:absolute; z-index:1; top:8%; left:50%;
+  width:172px; height:172px; transform:translateX(-50%);
+  border-radius:47% 53% 62% 38% / 44% 40% 60% 56%;
+  transition:transform .5s ease;
+}
+.frente:hover .frente__blob{ transform:translateX(-50%) rotate(12deg) scale(1.06); }
+.frente__label{ margin:18px 0 0; line-height:1.2; }
+.frente__label span{
+  display:block; font-family:var(--fonte-mao); font-size:1.4rem;
+  color:var(--tinta); transform:rotate(-2deg);
+}
+.frente__label b{
+  display:block; font-family:var(--fonte-titulo); font-weight:800;
+  font-size:1.2rem; letter-spacing:-.01em;
+}
+
+/* ==========================================================================
+   Cartões / grids
+   ========================================================================== */
+.grid{ display:grid; gap:26px; }
+.grid--3{ grid-template-columns:repeat(3,1fr); }
+.grid--4{ grid-template-columns:repeat(4,1fr); }
+.grid--2{ grid-template-columns:repeat(2,1fr); }
+
+.card{ background:#fff; border:2px solid var(--tinta); border-radius:var(--raio); padding:28px; box-shadow:4px 5px 0 rgba(43,42,40,.9); transition:transform .2s ease, box-shadow .2s ease; position:relative; overflow:hidden; }
+.card::before{ content:""; position:absolute; top:0; left:0; right:0; height:5px; background:var(--cor,var(--laranja)); }
+.card:hover{ transform:translate(-3px,-5px); box-shadow:8px 10px 0 rgba(43,42,40,.9); }
+.card__star{ position:absolute; top:14px; right:14px; width:22px; height:22px; color:var(--cor,var(--laranja)); opacity:0; transform:scale(.4) rotate(-30deg); transition:.25s ease; }
+.card:hover .card__star{ opacity:1; transform:scale(1) rotate(0); }
+.card__ico{ width:58px; height:58px; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:16px; background:var(--fundo-2); border:2px solid var(--tinta); transition:transform .25s ease; }
+.card:hover .card__ico{ transform:scale(1.08) rotate(-6deg); }
+.card h3{ margin-bottom:.4em; }
+.card p{ color:var(--texto-2); margin:0; font-size:.98rem; }
+
+.card--c1{ --cor:var(--azul); }    .card--c1 .card__ico{ background:rgba(76,148,198,.14); }
+.card--c2{ --cor:var(--verde); }   .card--c2 .card__ico{ background:rgba(135,188,138,.16); }
+.card--c3{ --cor:var(--amarelo); } .card--c3 .card__ico{ background:rgba(233,196,82,.20); }
+.card--c4{ --cor:var(--laranja); } .card--c4 .card__ico{ background:rgba(236,154,94,.16); }
+.card--c5{ --cor:var(--coral); }   .card--c5 .card__ico{ background:rgba(219,93,107,.14); }
+.card--c6{ --cor:var(--azul); }    .card--c6 .card__ico{ background:rgba(76,148,198,.14); }
+
+.section-head{ max-width:680px; margin:0 auto 50px; text-align:center; position:relative; z-index:1; }
+.section-head p{ color:var(--texto-2); }
+
+/* Sobre */
+.sobre{ display:grid; grid-template-columns:1fr 1fr; gap:52px; align-items:center; position:relative; z-index:1; }
+.sobre__media{ position:relative; border-radius:var(--raio); overflow:visible; }
+.sobre__media img{ width:100%; height:100%; object-fit:cover; aspect-ratio:4/3; border-radius:var(--raio); border:3px solid var(--tinta); box-shadow:8px 9px 0 rgba(43,42,40,.9); transition:transform .4s ease; position:relative; z-index:1; }
+.sobre__media:hover img{ transform:translateY(-4px) rotate(-.5deg); }
+
+/* números */
+.stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:38px; }
+.stat{ text-align:center; position:relative; }
+.stat b{ display:block; font-family:var(--fonte-titulo); font-weight:800; font-size:2.2rem; background:var(--degrade); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; position:relative; z-index:1; }
+.stat span{ color:var(--texto-2); font-size:.95rem; }
+
+/* Público (pílulas estilo adesivo) */
+.pill-list{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:8px; position:relative; z-index:1; }
+.pill{ background:#fff; border:2px solid var(--tinta); border-radius:999px; padding:11px 22px; font-weight:700; font-family:var(--fonte-titulo); font-size:.95rem; box-shadow:3px 4px 0 var(--tinta); transition:transform .18s ease, box-shadow .18s ease, background .18s ease; cursor:default; }
+.pill:nth-child(2n){ transform:rotate(-2deg); }
+.pill:nth-child(3n){ transform:rotate(1.5deg); }
+.pill:hover{ transform:translateY(-4px) rotate(0); box-shadow:5px 7px 0 var(--tinta); }
+.pill:nth-child(5n) { background:var(--tint-amarelo); }
+.pill:nth-child(3n+1){ background:var(--tint-azul); }
+.pill:nth-child(4n){ background:var(--tint-coral); }
+
+/* ==========================================================================
+   Reconhecimento e conquistas (certificados, diplomas, encontros)
+   ========================================================================== */
+/* flex (e não grid) pra que um card sobrando na última linha fique centralizado */
+.conquistas-grid{ display:flex; flex-wrap:wrap; justify-content:center; gap:26px; position:relative; z-index:1; }
+.conquistas-grid > .conquista{ flex:0 0 calc((100% - 3*26px)/4); }
+.conquista{ margin:0; background:#fff; border:3px solid var(--tinta); border-radius:var(--raio); box-shadow:6px 7px 0 rgba(43,42,40,.9); overflow:hidden; transition:transform .25s ease, box-shadow .25s ease; }
+.conquista:nth-child(2n){ transform:rotate(-1deg); }
+.conquista:nth-child(3n){ transform:rotate(1deg); }
+.conquista:hover{ transform:translate(-3px,-5px) rotate(0); box-shadow:9px 11px 0 rgba(43,42,40,.9); }
+.conquista img{ width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center; border-bottom:3px solid var(--tinta); transition:transform .4s ease; }
+.conquista:hover img{ transform:scale(1.03); }
+.conquista figcaption{ padding:16px 18px 18px; }
+.conquista figcaption b{ display:block; font-family:var(--fonte-titulo); font-weight:800; font-size:1rem; line-height:1.25; margin-bottom:5px; }
+.conquista figcaption span{ color:var(--texto-2); font-size:.9rem; line-height:1.5; }
+
+/* Faixa de destaque (utilidade pública em tramitação) */
+.util-publica{ display:flex; align-items:center; justify-content:space-between; gap:26px; flex-wrap:wrap;
+  margin-top:34px; padding:24px 30px; background:#fff; border:3px solid var(--tinta);
+  border-radius:var(--raio); box-shadow:6px 7px 0 rgba(43,42,40,.9); position:relative; z-index:1; }
+.util-publica .ic{ font-size:2rem; line-height:1; }
+.util-publica .txt{ flex:1 1 320px; }
+.util-publica b{ display:block; font-family:var(--fonte-titulo); font-weight:800; font-size:1.1rem; margin-bottom:4px; }
+.util-publica p{ margin:0; color:var(--texto-2); font-size:.95rem; }
+.util-publica .btn{ flex:0 0 auto; }
+
+/* ==========================================================================
+   Evolare na mídia (entrevista + publicidade no jornal)
+   ========================================================================== */
+.midia-grid{ display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:stretch; position:relative; z-index:1; }
+.midia-card{ display:flex; flex-direction:column; background:#fff; border:3px solid var(--tinta); border-radius:var(--raio); box-shadow:6px 7px 0 rgba(43,42,40,.9); overflow:hidden; transition:transform .25s ease, box-shadow .25s ease; }
+.midia-card:hover{ transform:translate(-3px,-5px); box-shadow:9px 11px 0 rgba(43,42,40,.9); }
+.midia-card__foto{ width:100%; aspect-ratio:16/9; object-fit:cover; object-position:center; border-bottom:3px solid var(--tinta); }
+.midia-card__body{ padding:20px 22px 22px; display:flex; flex-direction:column; gap:12px; flex:1; }
+.midia-card__body h3{ font-family:var(--fonte-titulo); font-weight:800; font-size:1.12rem; line-height:1.25; }
+.midia-card__body p{ color:var(--texto-2); font-size:.95rem; margin:0; }
+.midia-tag{ align-self:flex-start; font-family:var(--fonte-titulo); font-weight:700; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--azul-forte); background:rgba(76,148,198,.14); border-radius:999px; padding:5px 13px; }
+.jornal-recortes{ background:#f5f2ec; border:2px solid var(--tinta); border-radius:var(--raio-sm); padding:12px; display:flex; flex-direction:column; gap:9px; }
+.jornal-recortes img{ width:100%; display:block; border-radius:6px; background:#fff; }
+.midia-card__body .btn{ align-self:flex-start; margin-top:auto; }
+
+/* ==========================================================================
+   Doação (dados bancários + PIX)
+   ========================================================================== */
+.doacao{ display:grid; grid-template-columns:1.05fr .95fr; gap:40px; align-items:center; position:relative; z-index:1; }
+.doacao__card{ background:#fff; border:3px solid var(--tinta); border-radius:var(--raio); box-shadow:8px 9px 0 rgba(43,42,40,.9); padding:28px 30px; }
+.doacao__banco{ display:flex; align-items:center; gap:14px; padding-bottom:18px; margin-bottom:18px; border-bottom:2px dashed rgba(43,42,40,.22); }
+.doacao__banco img{ width:120px; height:auto; }
+.doacao__banco span{ font-family:var(--fonte-titulo); font-weight:700; color:var(--texto-2); font-size:.95rem; }
+.doacao__linha{ display:flex; justify-content:space-between; gap:16px; padding:9px 0; border-bottom:1px solid rgba(43,42,40,.08); }
+.doacao__linha:last-child{ border-bottom:0; }
+.doacao__linha b{ color:var(--texto-2); font-weight:600; font-size:.9rem; }
+.doacao__linha span{ font-family:var(--fonte-titulo); font-weight:800; font-size:1.02rem; color:var(--texto); text-align:right; }
+.doacao__pix{ margin-top:16px; background:rgba(135,188,138,.16); border:2px solid rgba(135,188,138,.5); border-radius:var(--raio-sm); padding:14px 18px; }
+.doacao__pix b{ display:block; font-family:var(--fonte-titulo); font-weight:800; color:#4f9455; font-size:.8rem; letter-spacing:.05em; text-transform:uppercase; margin-bottom:3px; }
+.doacao__pix span{ font-family:var(--fonte-titulo); font-weight:800; font-size:1.12rem; color:var(--texto); }
+
+/* Duas fotos lado a lado (passeata) */
+.foto-dupla{ display:grid; grid-template-columns:1fr 1fr; gap:14px; position:relative; z-index:1; }
+.foto-dupla img{ width:100%; height:100%; aspect-ratio:3/4; object-fit:cover; border-radius:var(--raio); border:3px solid var(--tinta); box-shadow:5px 6px 0 rgba(43,42,40,.9); transition:transform .4s ease; }
+.foto-dupla figure{ margin:0; transition:transform .4s ease; }
+.foto-dupla figure img{ height:auto; transition:none; }
+.foto-dupla figure:nth-child(1){ transform:rotate(-1.5deg); }
+.foto-dupla figure:nth-child(2){ transform:rotate(1.5deg); }
+.foto-dupla:hover figure{ transform:rotate(0) translateY(-4px); }
+.foto-dupla figcaption{ margin-top:12px; text-align:center; font-family:var(--fonte-mao); font-weight:700; font-size:1.35rem; line-height:1.15; color:var(--tinta); }
+
+/* ==========================================================================
+   Galeria em marquee (loop infinito)
+   ========================================================================== */
+.marquee{ position:relative; width:100%; overflow:hidden; z-index:1;
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+.marquee + .marquee{ margin-top:16px; }
+/* padding-right = gap: assim -50% cai exatamente no início da cópia e o loop não dá o
+   "pulinho" de meio espaçamento a cada volta. */
+.marquee__track{ display:flex; gap:16px; padding-right:16px; width:max-content; animation:scroll-x 44s linear infinite; will-change:transform; backface-visibility:hidden; }
+.marquee--rev .marquee__track{ animation-direction:reverse; animation-duration:52s; }
+@keyframes scroll-x{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+/* 9/10 é exatamente a proporção das fotos depois de tirar a faixa da data,
+   então elas entram inteiras: sem corte lateral, sem rosto cortado. */
+.marquee__item{ flex:0 0 auto; width:264px; aspect-ratio:9/10; border-radius:var(--raio); overflow:hidden; border:3px solid var(--tinta); box-shadow:5px 6px 0 rgba(43,42,40,.85); position:relative; background:#f0ece5; }
+.marquee__item img{ width:100%; height:100%; object-fit:cover; object-position:center; transition:transform .5s ease; }
+.marquee__item::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 60%, rgba(61,61,61,.18)); opacity:0; transition:opacity .3s ease; }
+.marquee__item:hover img{ transform:scale(1.04); }
+.marquee__item:hover::after{ opacity:1; }
+/* Foto inteira: altura fixa e largura acompanhando o formato de cada foto,
+   sem recorte (vertical fica estreita, horizontal fica larga). */
+.marquee--inteira .marquee__item{ width:auto; height:293px; aspect-ratio:auto; }
+.marquee--inteira .marquee__item img{ width:auto; height:100%; object-fit:contain; }
+/* durações proporcionais à largura de cada faixa: as duas andam na mesma velocidade */
+.marquee--inteira .marquee__track{ animation-duration:50s; }
+.marquee--inteira.marquee--rev .marquee__track{ animation-duration:58s; }
+
+/* ==========================================================================
+   Depoimentos (avaliações reais do Google, em marquee)
+   ========================================================================== */
+.estrelas{ color:#E9A400; letter-spacing:2px; font-size:1rem; line-height:1; }
+
+.nota-google{
+  display:inline-flex; align-items:center; gap:10px; margin-top:16px;
+  background:#fff; border:2px solid var(--tinta); border-radius:999px;
+  padding:8px 18px; color:var(--texto); font-size:.92rem;
+  box-shadow:3px 4px 0 var(--tinta);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.nota-google:hover{ text-decoration:none; transform:translateY(-3px); box-shadow:5px 7px 0 var(--tinta); }
+.nota-google b{ font-family:var(--fonte-titulo); font-weight:800; font-size:1.25rem; color:var(--texto); }
+
+.depo-marquee .marquee__track{ gap:20px; animation-duration:56s; align-items:stretch; padding:10px 20px 10px 0; }
+.depo{
+  flex:0 0 auto; width:340px; margin:0;
+  display:flex; flex-direction:column; gap:14px;
+  background:#fff; border:3px solid var(--tinta); border-radius:var(--raio);
+  box-shadow:5px 6px 0 rgba(43,42,40,.85);
+  padding:24px 26px;
+  transition:transform .22s ease, box-shadow .22s ease;
+}
+.depo:nth-child(2n){ transform:rotate(-.7deg); }
+.depo:nth-child(3n){ transform:rotate(.8deg); }
+.depo:hover{ transform:translate(-3px,-6px) rotate(0); box-shadow:9px 11px 0 rgba(43,42,40,.9); }
+.depo blockquote{ margin:0; color:var(--texto-2); font-size:.98rem; line-height:1.6; flex:1; }
+.depo blockquote::before{ content:"“"; font-family:var(--fonte-titulo); font-size:2rem; color:var(--verde); line-height:0; vertical-align:-.15em; margin-right:2px; }
+.depo figcaption{ display:flex; align-items:center; gap:12px; border-top:2px dashed var(--borda); padding-top:14px; }
+.depo__avatar{
+  width:42px; height:42px; border-radius:50%; flex:0 0 auto;
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-family:var(--fonte-titulo); font-weight:800; font-size:1.1rem;
+  border:2px solid var(--tinta);
+}
+.depo__avatar--foto{ padding:0; overflow:hidden; background:#efece7; }
+.depo__avatar--foto img{ width:100%; height:100%; object-fit:cover; }
+.depo__quem b{ display:block; font-family:var(--fonte-titulo); font-size:.98rem; color:var(--texto); }
+.depo__quem span{ display:block; color:var(--texto-2); font-size:.8rem; }
+
+/* Equipe */
+.equipe-list{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; position:relative; z-index:1; }
+.equipe-item{ background:#fff; border:2px solid var(--tinta); border-radius:var(--raio-sm); padding:18px 20px; display:flex; align-items:center; gap:14px; box-shadow:3px 4px 0 rgba(43,42,40,.85); transition:transform .18s ease, box-shadow .18s ease; }
+.equipe-item:hover{ transform:translate(-2px,-4px); box-shadow:5px 7px 0 rgba(43,42,40,.85); }
+.equipe-item .dot{ width:14px; height:14px; border-radius:50%; flex:0 0 auto; border:2px solid var(--tinta); transition:transform .2s ease; }
+.equipe-item:hover .dot{ transform:scale(1.35); }
+.equipe-item b{ font-family:var(--fonte-titulo); }
+.equipe-item span{ color:var(--texto-2); font-size:.9rem; display:block; }
+
+/* CTA apoio */
+.apoio{ position:relative; z-index:1; background:var(--degrade); background-size:200% 100%; animation:slide-gradient 10s linear infinite; border-radius:26px; padding:62px 40px; text-align:center; color:#fff; border:3px solid var(--tinta); box-shadow:8px 10px 0 rgba(43,42,40,.9); overflow:hidden; }
+.apoio h2{ color:#fff; position:relative; z-index:2; }
+.apoio p{ color:rgba(255,255,255,.97); max-width:52ch; margin:0 auto 26px; position:relative; z-index:2; }
+.apoio .btn{ position:relative; z-index:2; }
+.apoio .doodle{ color:#fff; opacity:.55; z-index:1; }
+
+/* faixa transparência (teaser) */
+.trans-teaser{ display:grid; grid-template-columns:1.2fr .8fr; gap:40px; align-items:center; position:relative; z-index:1; }
+.trans-teaser ul{ margin:18px 0 0; padding:0; list-style:none; }
+.trans-teaser li{ padding:8px 0 8px 32px; position:relative; color:var(--texto-2); }
+.trans-teaser li::before{ content:"✓"; position:absolute; left:0; top:8px; width:20px; height:20px; border-radius:50%; background:rgba(135,188,138,.22); color:#4f9455; font-weight:800; font-size:.75rem; display:flex; align-items:center; justify-content:center; }
+.trans-teaser li b{ color:var(--texto); font-weight:700; }
+
+/* Contato */
+.contato-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; position:relative; z-index:1; }
+.contato-item{ display:flex; gap:14px; align-items:flex-start; margin-bottom:18px; padding:12px 14px; border-radius:var(--raio-sm); transition:background .2s ease, box-shadow .2s ease, transform .2s ease; }
+.contato-item:hover{ background:#fff; box-shadow:3px 4px 0 rgba(43,42,40,.85); transform:translateX(3px); }
+.contato-item .ic{ flex:0 0 auto; width:26px; height:26px; display:flex; align-items:center; justify-content:center; color:var(--laranja); margin-top:2px; }
+.contato-item .ic svg{ width:24px; height:24px; }
+.contato-item .ic--wa{ color:#25D366; }
+.contato-item .ic--ig{ color:#E1306C; }
+
+.map-embed{ position:relative; display:block; border-radius:var(--raio); overflow:hidden; border:3px solid var(--tinta); min-height:300px; box-shadow:6px 7px 0 rgba(43,42,40,.85); }
+.map-embed img{ width:100%; height:100%; min-height:300px; object-fit:cover; display:block; transition:transform .4s ease; }
+.map-embed:hover img{ transform:scale(1.04); }
+.map-embed__cta{ position:absolute; left:14px; bottom:14px; display:inline-flex; align-items:center; gap:7px; background:#fff; color:var(--texto); font-family:var(--fonte-titulo); font-weight:700; font-size:.92rem; padding:9px 14px; border-radius:999px; border:2px solid var(--tinta); box-shadow:3px 3px 0 rgba(43,42,40,.85); }
+.map-embed__cta svg{ width:18px; height:18px; color:var(--coral-forte); }
+
+/* ==========================================================================
+   Transparência (página)
+   ========================================================================== */
+.doc-hero{ position:relative; background:linear-gradient(180deg, #F1F7FC, #FCF7EE); padding:70px 0 48px; overflow:hidden; }
+.doc-group{ margin-bottom:46px; position:relative; z-index:1; }
+.doc-group h3{ display:flex; align-items:center; gap:12px; padding-bottom:12px; margin-bottom:22px; position:relative; }
+.doc-group h3::after{ content:""; flex:1; height:3px; background:linear-gradient(90deg, var(--tinta), transparent); border-radius:3px; }
+.doc-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.doc{ display:flex; gap:14px; align-items:center; background:#fff; border:2px solid var(--tinta); border-radius:var(--raio-sm); padding:16px 18px; box-shadow:3px 4px 0 rgba(43,42,40,.85); transition:transform .18s ease, box-shadow .18s ease; }
+.doc:hover{ text-decoration:none; transform:translate(-2px,-4px); box-shadow:5px 7px 0 rgba(43,42,40,.85); }
+.doc .doc__ic{ width:44px; height:44px; border-radius:12px; background:rgba(236,154,94,.14); border:2px solid var(--tinta); display:flex; align-items:center; justify-content:center; font-size:20px; flex:0 0 auto; transition:transform .2s ease; }
+.doc:hover .doc__ic{ transform:scale(1.1) rotate(-6deg); }
+.doc b{ display:block; color:var(--texto); font-family:var(--fonte-titulo); font-size:.98rem; }
+.doc span{ color:var(--texto-2); font-size:.82rem; }
+
+.aviso{ background:#fff; border:2px solid var(--tinta); border-left:5px solid var(--azul); border-radius:var(--raio-sm); padding:20px 24px; color:var(--texto-2); font-size:.95rem; position:relative; z-index:1; box-shadow:3px 4px 0 rgba(43,42,40,.85); }
+
+/* ==========================================================================
+   Botão voltar ao topo
+   ========================================================================== */
+.to-top{ position:fixed; right:22px; bottom:22px; z-index:60; width:52px; height:52px; border-radius:50%; background:#fff; border:2px solid var(--tinta); box-shadow:3px 4px 0 var(--tinta); display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--coral-forte); opacity:0; transform:translateY(16px) scale(.8); pointer-events:none; transition:.25s ease; }
+.to-top svg{ width:24px; height:24px; }
+.to-top.show{ opacity:1; transform:none; pointer-events:auto; }
+.to-top:hover{ transform:translateY(-3px) rotate(-6deg); box-shadow:5px 7px 0 var(--tinta); }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer{ background:var(--tinta); color:#cfcfcf; padding:56px 0 0; position:relative; overflow:hidden; }
+.site-footer a{ color:#e6e6e6; }
+.site-footer a:hover{ color:#fff; }
+.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; padding-bottom:40px; position:relative; z-index:1; }
+.site-footer img{ width:180px; margin-bottom:16px; }
+.site-footer h4{ color:#fff; font-size:1rem; margin-bottom:14px; }
+.site-footer ul{ list-style:none; margin:0; padding:0; }
+.site-footer li{ margin-bottom:9px; font-size:.94rem; }
+.footer-bottom{ border-top:1px solid #454545; padding:20px 0; text-align:center; font-size:.85rem; color:#9a9a9a; position:relative; z-index:1; }
+
+/* ==========================================================================
+   Responsivo
+   ========================================================================== */
+/* Rabiscos decorativos (doodles/pinceladas) só aparecem em telas largas, onde
+   sobra margem. Abaixo de 1500px eles invadiriam o texto/imagens (notebook,
+   monitor médio, celular), então são escondidos. São puramente decorativos
+   (aria-hidden), nada de conteúdo se perde. */
+@media (max-width: 1500px){
+  .doodle{ display:none !important; }
+}
+@media (max-width: 900px){
+  .hero__grid{ grid-template-columns:1fr; text-align:center; padding:56px 0; }
+  .hero__art{ order:-1; }
+  .hero p.lead{ margin-left:auto; margin-right:auto; }
+  .hero__cta{ justify-content:center; }
+  .hero__tag{ right:4%; }
+  .sobre{ grid-template-columns:1fr; gap:36px; }
+  .frentes{ grid-template-columns:repeat(2,1fr); gap:34px 20px; }
+  .frente__art{ height:240px; }
+  .campanha{ grid-template-columns:1fr; gap:44px; text-align:center; }
+  .campanha__lista{ display:inline-block; text-align:left; }
+  .puzzle-band{ height:66px; background-size:330px 66px; }
+  @keyframes puzzle-scroll{ to{ background-position:-330px 50%; } }
+  .grid--3, .grid--4, .doc-grid, .equipe-list, .conquistas-grid{ grid-template-columns:1fr 1fr; }
+  .conquistas-grid > .conquista{ flex-basis:calc((100% - 26px)/2); }
+  .trans-teaser, .contato-grid, .midia-grid, .doacao{ grid-template-columns:1fr; }
+  .footer-grid{ grid-template-columns:1fr; gap:28px; }
+  .marquee__item{ width:214px; }
+  .marquee--inteira .marquee__item{ width:auto; height:238px; }
+
+  /* O cabeçalho usa backdrop-filter (vidro), o que o torna o "containing block"
+     de filhos position:fixed. Por isso não dá pra usar inset:0 (o menu encolhia
+     pra altura do header). Fixamos altura de tela cheia via 100dvh/100vh. */
+  .nav__menu{ position:fixed; top:0; right:0; bottom:auto; left:auto; height:100vh; height:100dvh; width:min(78vw,320px); max-width:88vw; background:#fff; flex-direction:column; align-items:flex-start; padding:90px 28px; gap:20px; box-shadow:-10px 0 40px rgba(0,0,0,.12); transform:translateX(100%); transition:transform .25s ease; z-index:55; overflow-y:auto; }
+  .nav__menu.open{ transform:translateX(0); }
+  .nav__toggle{ display:block; z-index:60; position:relative; }
+  /* esconder doodles maiores que atrapalham no mobile */
+  .hero .doodle{ transform:scale(.7); }
+}
+@media (max-width: 560px){
+  body{ font-size:16px; }
+  .section{ padding:56px 0; }
+  .grid--3, .grid--4, .doc-grid, .equipe-list, .conquistas-grid{ grid-template-columns:1fr; }
+  .conquistas-grid > .conquista{ flex-basis:100%; }
+  .frente__art{ height:190px; }
+  .frente__blob{ width:120px; height:120px; }
+  .frente__label span{ font-size:1.15rem; }
+  .frente__label b{ font-size:1rem; }
+  .stats{ grid-template-columns:1fr 1fr 1fr; gap:10px; }
+  .stat b{ font-size:1.6rem; }
+  .apoio{ padding:44px 22px; }
+  .marquee__item{ width:184px; }
+  .marquee--inteira .marquee__item{ width:auto; height:204px; }
+  .depo{ width:290px; padding:20px; }
+  .hero h1 .grad{ white-space:normal; }
+  .ribbon span{ font-size:.9rem; }
+}
+
+/* ==========================================================================
+   Bingo Solidário (vídeo vertical + duas fotos)
+   ========================================================================== */
+/* 0.655fr ≈ largura do vídeo 9:16 quando a coluna das fotos tem duas fotos 16:9 empilhadas:
+   assim o vídeo e as fotos terminam na mesma altura, sem corte. */
+.bingo-grid{ display:grid; grid-template-columns:.655fr 1fr; gap:18px; align-items:start; position:relative; z-index:1; max-width:980px; margin:0 auto; }
+.bingo-video, .bingo-fotos img{ border:3px solid var(--tinta); border-radius:var(--raio); box-shadow:6px 7px 0 rgba(43,42,40,.9); overflow:hidden; background:#000; }
+.bingo-video video{ display:block; width:100%; height:auto; }
+.bingo-fotos{ display:grid; gap:18px; }
+.bingo-fotos img{ display:block; width:100%; height:auto; }
+@media (max-width: 760px){
+  .bingo-grid{ grid-template-columns:1fr; }
+  .bingo-video{ max-width:340px; margin:0 auto; }
+}
